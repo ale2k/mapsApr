@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>mapsTest</title>
+    
+	<!-- style da usare per android
+	-->
+    <link rel="stylesheet" href="css/framework7.material.min.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+	
+	<!-- style da usare per iOS
+    <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+	-->
+	
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+	
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	
+	
+	<style>
+		body{font-family: 'Montserrat', sans-serif; font-size:15px;}
+		.but{width:90px; height:100px; float:left; padding-right: 7px; text-align: center;}
+    </style>
+ 
+  </head>
+  <body>
+    <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+	  	
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-fixed">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page">
+ 
+			<!-- Top Navbar -->
+			<div class="navbar">
+			  <div class="navbar-inner">
+				<div class="center">mapsTest</div>
+			  </div>
+			</div>
+			
+			<!-- Search Bar with "searchbar-init" class for auto initialization -->
+			<form id="searchbar-form" class="searchbar searchbar-init" data-custom-search="true" >
+				<div class="searchbar-input">
+					<input id="searchbar-input" type="search" placeholder="cerca societa' sportiva" />
+					<a href="#" class="searchbar-clear"></a>
+				</div>
+				<a href="#" class="searchbar-search">Cerca</a>
+			</form>
+			
+			
+			<!-- Search Bar overlay-->
+			<div class="searchbar-overlay"></div>
+ 
+				<!-- Scrollable page content -->
+				<div class="page-content">
+					<div class="but" id="ciao">
+				
+						INDEX
+						
+					</div>
+				</div>
+			</div>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+	
+	<!-- importa la libreria delle societa' -->
+    <script type="text/javascript" src="js/list.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/dettaglio.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtp3tU62O0i1x3pnadI0I9ZRKmWyfsQd0" async defer></script>
+
+	<script>
+	
+	var mainView = myApp.addView('.view-main');
+	
+	// evento lanciato quando l'utente avvia la ricerca schiacciando sul pulsante "cerca"
+	$$('.searchbar-search').on('click', function() 
+	{
+		var text = $$('#searchbar-input').val();
+		loadList(text);
+	});
+	
+	// evento lanciato quando l'utente avvia la ricerca da tastiera
+	$$('#searchbar-form').on('submit', function() 
+	{
+		var text = $$('#searchbar-input').val();
+		loadList(text);
+	});
+	
+	// evento lanciato quando l'utente schiaccia su uno sport
+	$$('.but').on('click', function() 
+	{
+		var text = $$(this).attr('id');
+		loadList(text);
+	});
+	
+	
+	
+	</script>
+	
+  </body>
+</html> 
+
+
+<!--
+
+credit to this guy for the map icon
+<div>Icons made by <a href="http://www.flaticon.com/authors/scott-de-jonge" title="Scott de Jonge">Scott de Jonge</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+-->
