@@ -59,17 +59,13 @@ function loadList(text)
 	// qui dico al bottone in alto a sx di tornare indietro se schiacciato
 	$$('.left').on('click', function() 
 	{
-		mainView.router.back(
-		{
-			animatePages: true
-		});
-		
+		loadIndex();
 	});
 	
 	// cosa succede se si vuole andare alla mappa
 	$$('.mapLink').on('click', function() 
 	{
-		loadMap(locations, "img/wiki.png");
+		loadMap(locations, "img/wiki.png", text);
 	});
 	
 	// cosa succede se si clicca su una societa'

@@ -1,5 +1,5 @@
 // funzione da chiamare quando un utente vuole vedere la mappa
-function loadMap(socLocations, pic)
+function loadMap(socLocations, pic, text)
 {
 	// contenuto statico e fisso della nuova pagina
 	var pageCode = '<div class="page" data-page="list">'
@@ -30,10 +30,7 @@ function loadMap(socLocations, pic)
 	// cosa succede se si vuole andare alla mappa
 	$$('.listLink').on('click', function() 
 	{
-		mainView.router.back(
-		{
-			animatePages: true
-		});
+		loadSportList(text);
 	});
 
 	// carica la mappa
