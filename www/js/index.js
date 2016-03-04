@@ -62,26 +62,8 @@ function loadIndex()
 	$$('.sportContainer').on('click', function() 
 	{
 		var text = $$(this).attr('id');
-		var sportChosen = searchSport(text);
-		if (sportChosen != null && sportChosen != undefined)
-		{
-			loadSportList(sportChosen);
-		}
+		loadSportList(text);
 	});
 	
-	// ricerca da lanciare quando siamo sicuri che l'utente sta cercando uno sport
-	// ovvero quando clicca su uno sport
-	function searchSport(id)
-	{
-		for (var i = 0; i < associazioni.length; i++)
-		{
-			if (associazioni[i].id == id)
-			{
-				return associazioni[i];
-			}
-		}
-		
-		myApp.alert("nessun risultato per "+id);
-		return null;
-	}
+
 }

@@ -1,6 +1,6 @@
 // funzione da chiamare quando un utente clicca su uno sport
 // per caricare la lista relativa
-function loadList(text)
+function loadSportList(text)
 {
 	// contenuto statico e fisso della nuova pagina
 	var pageOpening = '<div class="page" data-page="list">'
